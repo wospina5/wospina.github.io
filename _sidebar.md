@@ -1,7 +1,6 @@
 * [Inicio](README.md)
-* **[Contaminación](contaminacion.md)**
-  * [## Conceptos Básicos](conceptos.md)
-  * [# Agentes Contaminantes](agentes.md)
-  * [# Medición del Impacto](medicion.md)
-  * [# Prevención y Control](prevencion.md)
-* [Otros Temas](otros.md)
+* **[Contaminación i salut a l' Eixample](Contaminacio.md)**
+  * [## Contaminació i Salut Respiratòria a l' Eixample](conceptos.md)
+  * [# Environmental epidemiological Analysis](agentes.md)
+  * [# Distributed Lag Non-linear Models](medicion.md)
+  * [# Resultats de l' Eixample](prevencion.md)
