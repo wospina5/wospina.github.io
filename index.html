@@ -1,286 +1,268 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="ca" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌫️ Problema · Contaminació i infeccions respiratòries · Eixample</title>
+    <title>Web de Projectes · Epidemiologia i Més</title>
     
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        * { box-sizing: border-box; margin: 0; }
         body {
-            background: #eef3f0;
-            font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
-            padding: 24px;
-            color: #1e2e26;
-            line-height: 1.5;
+            font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: var(--bs-body-bg);
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-        .card {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(2px);
-            border-radius: 28px;
-            padding: 28px 32px;
-            box-shadow: 0 12px 28px -8px rgba(20,40,30,0.12);
-            border: 1px solid #cbdcd2;
-        }
-        h1 {
-            font-weight: 650;
-            font-size: 2.3rem;
-            letter-spacing: -0.01em;
-            color: #0a3227;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        h2 {
-            font-weight: 550;
-            font-size: 1.6rem;
-            margin: 18px 0 16px;
-            border-left: 8px solid #2e7d5e;
-            padding-left: 20px;
-            color: #1a4d3c;
-        }
-        h3 {
+        .navbar {
             font-weight: 600;
-            font-size: 1.3rem;
-            margin: 20px 0 12px;
-            color: #1f5a44;
-        }
-        .badge {
-            background: #d9ece3;
-            padding: 5px 16px;
-            border-radius: 40px;
-            font-size: 0.95rem;
-            color: #0f4c3a;
-            font-weight: 500;
-        }
-        .city-highlight {
-            background: #1b4e3f;
-            color: white;
-            padding: 6px 22px;
-            border-radius: 60px;
-            font-weight: 600;
-            display: inline-block;
-            margin: 8px 0 4px;
-        }
-        .data-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-            gap: 18px;
-            margin: 25px 0 10px;
-        }
-        .stat-box {
-            background: #f5faf7;
-            border-radius: 20px;
-            padding: 18px 16px;
-            border: 1px solid #bfd9cd;
-            box-shadow: inset 0 1px 3px white, 0 3px 6px rgba(0,20,10,0.03);
-        }
-        .stat-number {
-            font-size: 2.3rem;
-            font-weight: 750;
-            color: #0f4a35;
-            line-height: 1.2;
-        }
-        .stat-label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
-            color: #3a6855;
-        }
-        .pollutant-bar {
-            background: #e1ede6;
-            border-radius: 48px;
-            padding: 14px 20px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: baseline;
-            gap: 14px 32px;
-            margin: 18px 0;
-        }
-        .exceed {
-            color: #b13e3e;
-            font-weight: 650;
-            background: #fff0ed;
-            padding: 2px 12px;
-            border-radius: 30px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.95rem;
-        }
-        th {
-            text-align: left;
-            background: #c7ded2;
-            padding: 12px 10px;
-            font-weight: 600;
-            color: #0a3022;
-        }
-        td {
-            padding: 10px;
-            border-bottom: 1px solid #c3d9ce;
-        }
-        .formula-block {
-            background: #f0f7f3;
-            border-radius: 24px;
-            padding: 22px 26px;
-            margin: 22px 0;
-            border-left: 8px solid #1f7a5c;
-            font-size: 1.1rem;
-        }
-        .step {
-            margin-bottom: 30px;
-        }
-        .step-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 14px;
-        }
-        .step-num {
-            background: #1b4e3f;
-            color: white;
-            width: 42px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 18px;
-            font-weight: 700;
-            font-size: 1.4rem;
-        }
-        .footnote {
-            margin-top: 12px;
-            font-size: 0.9rem;
-            color: #3a6653;
-            border-top: 1px dashed #aac0b6;
-            padding-top: 16px;
-        }
-        .small-mono {
-            font-family: 'SF Mono', 'Fira Code', monospace;
-            background: #ecf3ef;
-            padding: 2px 8px;
-            border-radius: 20px;
-        }
-        @media (max-width: 650px) {
-            .card { padding: 20px 16px; }
-            h1 { font-size: 1.9rem; }
-        }
-        #mainNavbar {
-            background-color: #ffffff;
-            z-index: 1030;
-            border-radius: 0;
-            transition: background-color 0.3s ease;
         }
         .logo {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             object-fit: cover;
             border-radius: 50%;
+        }
+        .content-section {
+            display: none; /* Amagat per defecte, es controla via JS */
+        }
+        .content-section.active-section {
+            display: block; /* Només es mostra la secció activa */
+        }
+        /* Estils personalitzats per a les targetes de dades */
+        .stat-box {
+            background: rgba(0, 0, 0, 0.03);
+            border-radius: 15px;
+            padding: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        [data-bs-theme="dark"] .stat-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .pollutant-bar {
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 30px;
+            padding: 12px 20px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        [data-bs-theme="dark"] .pollutant-bar {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .exceed {
+            color: #dc3545;
+            font-weight: 600;
+            background: rgba(220, 53, 69, 0.1);
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+        .formula-block {
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 15px;
+            padding: 15px;
+            border-left: 5px solid #198754;
+        }
+        [data-bs-theme="dark"] .formula-block {
+            background: rgba(255, 255, 255, 0.03);
         }
     </style>
 </head>
 <body>
 
-<nav id="mainNavbar" class="navbar navbar-expand-lg shadow" style="border-radius:16px; margin:10px; padding:8px 16px;">
-  <div class="container-fluid">
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="logo.png" alt="Logo" class="logo rounded-circle me-2">
-      <span class="fw-bold">Wilfredo</span>
-    </a>
-  </div>
+<nav class="navbar navbar-expand-lg navbar-blur sticky-top border-bottom bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="#" onclick="switchTab('inici')">
+            <img src="logo.png" alt="Logo" class="logo me-2">
+            <span>Web de llyas</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-robot me-1"></i> Cerca IA vs Google Academic
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="switchTab('ia-vs-academic')">Anàlisi Comparatiu</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-folder me-1"></i> 22 dies en 22 peus
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="switchTab('22-dies')">Detalls del Projecte</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-folder-open me-1"></i> Contaminació i Salut al Baix Llobregat
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="switchTab('epidemiologia-eixample')"><i class="fa-solid fa-mask-ventilator me-2"></i>Contaminació i Salut Respiratòria (Eixample)</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="switchTab('epidemiologia-analysis')"><i class="fa-solid fa-chart-line me-2"></i>Environmental Epidemiological Analysis</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="switchTab('epidemiologia-dlnm')"><i class="fa-solid fa-calculator me-2"></i>Distributed Lag Non-linear Models</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="switchTab('epidemiologia-resultats')"><i class="fa-solid fa-square-poll-vertical me-2"></i>Resultats de l'Eixample</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <button class="btn btn-link text-body nav-link p-2" id="themeToggler" onclick="toggleTheme()" aria-label="Cambiar modo de color">
+                <i class="fa-solid fa-moon fs-5" id="themeIcon"></i>
+            </button>
+        </div>
+    </div>
 </nav>
 
-<div class="container">
-    <div class="card">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
-            <div>
-                <h1>🌫️ Com afecta la contaminació aèria a les incidències d'infeccions respiratòries?</h1>
-                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px;">
-                    <span class="badge">📍 Barcelona (Eixample) · 2012 – 2025</span>
-                    <span class="badge">📊 5201 dies analitzats</span>
+<div class="container my-5">
+
+    <div id="inici" class="content-section active-section">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-8 card shadow p-5 border-0 rounded-4 bg-body-wrapper">
+                <h1 class="fw-bold mb-4">Benvinguts als Projectes</h1>
+                <p class="lead fs-5">
+                    Aquesta és una web amb menú desplegable, icones Font Awesome, mode clar i fosc, i disseny responsiu per mòbil i ordinador utilitzant Bootstrap 5.3.8. Aquest és el punt de partida per editar tot i fer projectes amb el professor Francesc Pérez.
+                </p>
+                <hr class="my-4 opacity-25">
+                <p class="fs-6 text-secondary">
+                    Sóc <strong>Ilyas</strong> de 4tA ESO de l'<strong>Institut Pompeu Fabra</strong>. En aquesta web veurem projectes realitzats durant el 4t d'ESO a la matèria de digitalització.
+                </p>
+                <div class="text-start mt-4 bg-light-subtle p-3 rounded-3">
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><i class="fa-solid fa-circle-check text-success me-2"></i> <strong>Projecte 1:</strong> Comparar aliments ecològics i convencionals...</li>
+                        <li><i class="fa-solid fa-circle-check text-success me-2"></i> <strong>Projecte 2:</strong> 22 dies en 22 peus: cursa nàutica, vectors i distàncies GPS.</li>
+                    </ul>
                 </div>
             </div>
-            <div class="city-highlight">🏢 Eixample · dades reals eixample.csv</div>
-        </div>
-        <p style="margin-top: 20px; font-size: 1.1rem; background: #e6f0ea; padding: 12px 24px; border-radius: 50px;">
-            <strong>Problema clàssic:</strong> Avaluar l'associació de risc i interpretar l'impacte sanitari a l'Eixample.
-        </p>
-    </div>
-
-    <div class="card">
-        <h2>📋 Enunciat complet · dades proporcionades</h2>
-        <div class="data-grid">
-            <div class="stat-box"><span class="stat-number">5201</span><div class="stat-label">Dies analitzats</div></div>
-            <div class="stat-box"><span class="stat-number">1.69</span><div class="stat-label">Incidència mitjana (casos/1000)</div></div>
-            <div class="stat-box"><span class="stat-number">0.448</span><div class="stat-label">Correlació màxima · NO₂</div></div>
-        </div>
-        
-        <h3>🌫️ Mitjanes de contaminants i superacions de límits OMS</h3>
-        <div class="pollutant-bar">
-            <span><strong>NO₂</strong> 47.1 µg/m³ <span class="exceed">4608 dies > límit 25</span></span>
-            <span><strong>NO</strong> 27.9 µg/m³ <span class="exceed">2052 dies > límit 25</span></span>
-            <span><strong>PM10</strong> 27.1 µg/m³ <span class="exceed">292 > 45</span></span>
         </div>
     </div>
 
-    <div class="card">
-        <h2>🧮 Resolució guiada · pas a pas</h2>
-        <div class="step">
-            <div class="step-header"><span class="step-num">1</span><span style="font-size: 1.4rem; font-weight: 600;">Correlació NO₂ – incidència (lag 0)</span></div>
-            <div class="formula-block">
-                \[
-                r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}} 
-                \]
-                \[
-                r_{\text{NO}_2,\text{incid}}(0) = 0.448 \quad (p < 0.0001)
-                \]
+    <div id="epidemiologia-eixample" class="content-section">
+        <div class="card shadow border-0 rounded-4 p-4 mb-4">
+            <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                <div>
+                    <h2 class="fw-bold text-success"><i class="fa-solid fa-smog me-2"></i> Impacte Ambiental a l'Eixample</h2>
+                    <p class="text-muted">Anàlisi de relació entre NO₂ i problemes respiratoris municipals.</p>
+                </div>
+                <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fs-6">📍 Barcelona · Eixample</span>
             </div>
-            <p><strong>Interpretació:</strong> Existeix una correlació positiva moderada-alta molt sòlida a l'Eixample.</p>
+            
+            <div class="row g-3 my-3">
+                <div class="col-sm-4"><div class="stat-box text-center"><h3 class="fw-bold text-success">5,201</h3><small class="text-muted uppercase">Dies Analitzats</small></div></div>
+                <div class="col-sm-4"><div class="stat-box text-center"><h3 class="fw-bold text-success">1.69</h3><small class="text-muted">Incidència Mitjana (‰)</small></div></div>
+                <div class="col-sm-4"><div class="stat-box text-center"><h3 class="fw-bold text-success">0.448</h3><small class="text-muted">Correlació Màxima (NO₂)</small></div></div>
+            </div>
+
+            <div class="pollutant-bar d-flex flex-wrap justify-content-around gap-2 my-2 align-items-center">
+                <span><strong>NO₂:</strong> 47.1 µg/m³ <span class="exceed">4,608 dies > límit</span></span>
+                <span><strong>NO:</strong> 27.9 µg/m³ <span class="exceed">2,052 dies > límit</span></span>
+                <span><strong>PM10:</strong> 27.1 µg/m³ <span class="exceed">292 dies > límit</span></span>
+            </div>
         </div>
 
-        <div class="step">
-            <div class="step-header"><span class="step-num">2</span><span style="font-size: 1.4rem; font-weight: 600;">Indicadors de risc (RR, AR, AR%)</span></div>
-            <div class="formula-block">
+        <div class="card shadow border-0 rounded-4 p-4">
+            <h4 class="fw-bold mb-3">Modelització Matemàtica i Risc</h4>
+            <div class="formula-block my-3">
+                \[ r_{\text{NO}_2,\text{incid}}(0) = 0.448 \quad (p < 0.0001) \]
                 \[ RR = \frac{I_{\text{exposats}}}{I_{\text{no exposats}}} \approx 1.12 \]
-                \[ AR\% = \frac{AR}{I_{\text{exposats}}} \times 100 \approx 10.7\% \]
             </div>
-        </div>
-        
-        <div class="step">
-            <div class="step-header"><span class="step-num">3</span><span style="font-size: 1.4rem; font-weight: 600;">Anàlisi crític de pics (Gener 2022)</span></div>
-            <table>
-                <tr><th>Data</th><th>Incidència</th><th>NO₂ (µg/m³)</th><th>NOX (µg/m³)</th><th>Alerta</th></tr>
-                <tr><td>2022-01-17</td><td>4.85</td><td>40.4</td><td>60.3</td><td>⚠️ HIGH PEAK</td></tr>
-                <tr><td>2022-01-10</td><td>4.85</td><td>48.8</td><td>78.8</td><td>⚠️ HIGH PEAK</td></tr>
-            </table>
-            <div class="formula-block">
-                \[ \text{Consultes extra} = (4.85 - 1.69) \times \frac{260.000}{1000} \approx 821 \]
-            </div>
+            <p>L'anàlisi estadístic confirma una relació directa i sense retard entre els pics de contaminació per trànsit i l'increment d'urgències respiratòries a l'Eixample.</p>
         </div>
     </div>
+
+    <div id="ia-vs-academic" class="content-section">
+        <div class="card shadow border-0 rounded-4 p-4">
+            <h2 class="fw-bold"><i class="fa-solid fa-robot me-2"></i> Cerca IA vs Google Academic</h2>
+            <p class="text-muted">Contingut del Projecte 1 en desenvolupament.</p>
+        </div>
+    </div>
+
+    <div id="22-dies" class="content-section">
+        <div class="card shadow border-0 rounded-4 p-4">
+            <h2 class="fw-bold"><i class="fa-solid fa-ship me-2"></i> 22 dies en 22 peus</h2>
+            <p class="text-muted">Contingut del Projecte 2 en desenvolupament (Cursa nàutica i vectors).</p>
+        </div>
+    </div>
+
+    <div id="epidemiologia-analysis" class="content-section">
+        <div class="card shadow border-0 rounded-4 p-4">
+            <h2 class="fw-bold">Environmental Epidemiological Analysis</h2>
+            <p class="text-muted">Secció dedicada a l'anàlisi avançat de variables ambientals.</p>
+        </div>
+    </div>
+
+    <div id="epidemiologia-dlnm" class="content-section">
+        <div class="card shadow border-0 rounded-4 p-4">
+            <h2 class="fw-bold">Distributed Lag Non-linear Models (DLNM)</h2>
+            <p class="text-muted">Modelització matemàtica de les corbes de retard de contaminants.</p>
+        </div>
+    </div>
+
+    <div id="epidemiologia-resultats" class="content-section">
+        <div class="card shadow border-0 rounded-4 p-4">
+            <h2 class="fw-bold">Resultats Finals</h2>
+            <p class="text-muted">Gràfics i conclusions de la recollida de dades històriques.</p>
+        </div>
+    </div>
+
 </div>
 
 <script>
-    window.addEventListener('load', function() {
-        if (window.MathJax) { MathJax.typesetPromise(); }
-    });
+    // 1. Sistema dinàmic de canvi de seccions (Tabs)
+    function switchTab(targetSectionId) {
+        // Amaga totes les seccions
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(section => {
+            section.classList.remove('active-section');
+        });
+        
+        // Mostra la secció seleccionada
+        const targetSection = document.getElementById(targetSectionId);
+        if(targetSection) {
+            targetSection.classList.add('active-section');
+        }
+        
+        // Forçar MathJax a rerenderitzar si hi ha fórmules noves visibles
+        if (window.MathJax && window.MathJax.typesetPromise) {
+            MathJax.typesetPromise();
+        }
+
+        // Tanca el menú desplegable automàticament en mòbils després de fer clic
+        const navbarCollapse = document.getElementById('navbarNav');
+        if(navbarCollapse.classList.contains('show')) {
+            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            bsCollapse.hide();
+        }
+    }
+
+    // 2. Control del Mode Clar / Mode Fosc natiu de Bootstrap 5.3
+    function toggleTheme() {
+        const htmlEl = document.documentElement;
+        const iconEl = document.getElementById('themeIcon');
+        
+        if (htmlEl.getAttribute('data-bs-theme') === 'light') {
+            htmlEl.setAttribute('data-bs-theme', 'dark');
+            iconEl.classList.remove('fa-moon');
+            iconEl.classList.add('fa-sun');
+        } else {
+            htmlEl.setAttribute('data-bs-theme', 'light');
+            iconEl.classList.remove('fa-sun');
+            iconEl.classList.add('fa-moon');
+        }
+    }
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
